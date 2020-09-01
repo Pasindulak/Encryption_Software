@@ -10,3 +10,12 @@
 .close:pressed{
  -fx-background-color: #e04646;
 }
+.button .text{
+-fx-font-family:"Segoe Print";
+-fx-font-size:28;
+-fx-fill:#3b5bff;
+
+}
+#de .text{
+-fx-fill:#d93dff;
+}

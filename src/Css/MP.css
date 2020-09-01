@@ -19,3 +19,9 @@
 #de .text{
 -fx-fill:#d93dff;
 }
+#de, #en{
+ -fx-background-color: #d1d5e6;
+}
+#de:hover, #en:hover{
+ -fx-background-color: #b3b8c9;
+}

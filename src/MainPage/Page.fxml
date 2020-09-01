@@ -17,7 +17,7 @@
    <top>
       <AnchorPane prefHeight="132.0" prefWidth="600.0" style="-fx-background-color: #2962ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="87.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES - Encryption Software" textFill="WHITE">
+            <Label layoutX="87.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES ~ Encryption Software" textFill="WHITE">
                <font>
                   <Font name="Footlight MT Light" size="30.0" />
                </font>
@@ -79,31 +79,27 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="en" fx:id="encrypt" alignment="CENTER" contentDisplay="TOP" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="184.0" text="Encrypt" textFill="#3b5bff" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="100.0">
+            <Button id="en" fx:id="encrypt" alignment="CENTER" contentDisplay="TOP" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" onAction="#encryptBtn" prefHeight="184.0" prefWidth="184.0" text="Encrypt" textFill="#3b5bff" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="100.0">
                <font>
                   <Font name="Footlight MT Light" size="32.0" />
                </font>
-               <stylesheets>
-                  <URL value="@../Css/bootstrap3.css" />
-                  <URL value="@../Css/MP.css" />
-               </stylesheets>
                <graphic>
                   <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../ico/encrypt.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" layoutX="324.0" layoutY="100.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="184.0" text="Decrypt" textFill="#d93dff" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="100.0">
-               <font>
-                  <Font name="Footlight MT Light" size="32.0" />
-               </font>
+               </graphic>
                <stylesheets>
                   <URL value="@../Css/bootstrap3.css" />
                   <URL value="@../Css/MP.css" />
-               </stylesheets>
+               </stylesheets></Button>
+            <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" layoutX="324.0" layoutY="100.0" mnemonicParsing="false" onAction="#decryptBtn" prefHeight="184.0" prefWidth="184.0" text="Decrypt" textFill="#d93dff" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font name="Footlight MT Light" size="32.0" />
+               </font>
                <graphic>
                   <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -111,6 +107,10 @@
                      </image>
                   </ImageView>
                </graphic>
+               <stylesheets>
+                  <URL value="@../Css/bootstrap3.css" />
+                  <URL value="@../Css/MP.css" />
+               </stylesheets>
             </Button>
          </children>
       </AnchorPane>

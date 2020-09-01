@@ -1,0 +1,12 @@
+.mini:hover {
+ -fx-background-color: #768fff;
+}
+.close:hover {
+ -fx-background-color: #c93030;
+}
+.mini:pressed {
+ -fx-background-color: #6a81e6;
+}
+.close:pressed{
+ -fx-background-color: #e04646;
+}

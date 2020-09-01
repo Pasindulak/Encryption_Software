@@ -27,7 +27,7 @@
                   <Image url="@../ico/main.png" />
                </image>
             </ImageView>
-            <HBox prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #0039cb;">
+            <HBox fx:id="header" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #0039cb;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>

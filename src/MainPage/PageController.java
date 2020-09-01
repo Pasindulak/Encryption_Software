@@ -25,6 +25,8 @@ public class PageController implements Initializable {
     HBox header;
     @FXML
     AnchorPane body;
+    @FXML
+    AnchorPane mPane;
 
 
     @Override
@@ -57,15 +59,21 @@ public class PageController implements Initializable {
     }
 
          /**------Encrypt and Decrypt buttons' methos-------------*/
+public static AnchorPane mainPane;
+    public static AnchorPane bodyPane;
 
         @FXML
     private void encryptBtn(ActionEvent event) throws IOException {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
+            mainPane = mPane;
+            bodyPane = body;
             body.getChildren().setAll(pane);
         }
     @FXML
     private void decryptBtn(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/decryptPage/dPage.fxml"));
+        mainPane = mPane;
+        bodyPane = body;
        body.getChildren().setAll(pane);
     }
 }

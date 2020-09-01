@@ -1,27 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane prefHeight="135.0" prefWidth="600.0" style="-fx-background-color: #0277bd;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="132.0" prefWidth="600.0" style="-fx-background-color: #2962ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="72.0" layoutY="38.0" prefHeight="60.0" prefWidth="277.0" text="Encryption Software" textFill="WHITE">
+            <Label layoutX="87.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES- Encryption Software" textFill="WHITE">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="63.0" fitWidth="64.0" layoutX="469.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="41.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ico/main.png" />
                </image>
             </ImageView>
+            <HBox prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #0039cb;">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ico/lock.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="8.0" top="3.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="30.0" prefWidth="238.0" text="AES- Encryption Software 1.0" textFill="#ffffffc9">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="36.0">
+                     <children>
+                        <Line endX="-86.0" layoutX="97.0" layoutY="15.0" startX="-72.0" stroke="WHITE" strokeWidth="4.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="210.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <AnchorPane layoutX="521.0" layoutY="10.0" prefHeight="30.0" prefWidth="36.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="12.0" layoutY="22.0" smooth="false" stroke="WHITE" strokeWidth="2.0" text="X" textAlignment="CENTER" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.79296875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="15.0" right="4.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Label layoutX="87.0" layoutY="91.0" prefHeight="17.0" prefWidth="235.0" text="Encrypt and Decrypt Files with AES" textFill="#ffffffd7">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </top>

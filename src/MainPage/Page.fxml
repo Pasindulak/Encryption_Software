@@ -42,7 +42,7 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="36.0" styleClass="mini">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#minimize" prefHeight="28.0" prefWidth="36.0" styleClass="mini">
                      <children>
                         <Line endX="-86.0" layoutX="97.0" layoutY="15.0" startX="-72.0" stroke="WHITE" strokeWidth="3.0" styleClass="miniShape" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" />
                      </children>
@@ -53,7 +53,7 @@
                         <Insets left="219.0" />
                      </HBox.margin>
                   </AnchorPane>
-                  <AnchorPane layoutX="521.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="36.0" styleClass="close">
+                  <AnchorPane layoutX="521.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#shutdown" prefHeight="28.0" prefWidth="36.0" styleClass="close">
                      <children>
                         <Text fill="WHITE" layoutX="12.0" layoutY="22.0" smooth="false" stroke="WHITE" styleClass="closeShape" text="X" textAlignment="CENTER" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.79296875">
                            <font>
@@ -81,7 +81,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="en" alignment="CENTER" contentDisplay="TOP" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="184.0" text="Encrypt" textFill="#3b5bff" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="100.0">
+            <Button id="en" fx:id="encrypt" alignment="CENTER" contentDisplay="TOP" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="184.0" text="Encrypt" textFill="#3b5bff" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="100.0">
                <font>
                   <Font name="Footlight MT Light" size="32.0" />
                </font>
@@ -96,7 +96,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button id="de" alignment="CENTER" contentDisplay="TOP" layoutX="324.0" layoutY="100.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="184.0" text="Decrypt" textFill="#d93dff" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="100.0">
+            <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" layoutX="324.0" layoutY="100.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="184.0" text="Decrypt" textFill="#d93dff" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="100.0">
                <font>
                   <Font name="Footlight MT Light" size="32.0" />
                </font>

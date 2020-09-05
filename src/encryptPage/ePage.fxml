@@ -74,7 +74,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <ProgressBar layoutX="65.0" layoutY="324.0" prefHeight="18.0" prefWidth="263.0" progress="0.44" stylesheets="@../Css/bootstrap3.css" />
+      <ProgressBar layoutX="65.0" layoutY="324.0" prefHeight="18.0" prefWidth="263.0" progress="1.0" styleClass="success" stylesheets="@../Css/bootstrap3.css" />
       <Button layoutX="354.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="49.0" prefWidth="95.0" text="Encrypt!" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="310.0">
          <stylesheets>
             <URL value="@../Css/bootstrap3.css" />

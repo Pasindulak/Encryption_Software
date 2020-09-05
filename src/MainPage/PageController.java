@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -27,7 +28,8 @@ public class PageController implements Initializable {
     AnchorPane body;
     @FXML
     AnchorPane mPane;
-
+    @FXML
+    BorderPane bPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,13 +62,13 @@ public class PageController implements Initializable {
 
          /**------Encrypt and Decrypt buttons' methos-------------*/
 public static AnchorPane mainPane;
-    public static AnchorPane bodyPane;
-
+    public static AnchorPane bodyPane;  // parent pain
+    final int epageHeight = 430;
         @FXML
     private void encryptBtn(ActionEvent event) throws IOException {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
             mainPane = mPane;
-            bodyPane = body;
+            bodyPane = body;    // parent pain
             body.getChildren().setAll(pane);
         }
     @FXML

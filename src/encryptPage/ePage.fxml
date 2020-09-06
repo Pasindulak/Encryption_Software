@@ -46,7 +46,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <CheckBox layoutX="207.0" layoutY="202.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="133.0" selected="true" stylesheets="@../Css/bootstrap3.css" text="Default Settings">
+      <CheckBox fx:id="def" layoutX="207.0" layoutY="202.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="133.0" selected="true" stylesheets="@../Css/bootstrap3.css" text="Default Settings">
          <font>
             <Font size="14.0" />
          </font>

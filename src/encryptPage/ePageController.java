@@ -32,7 +32,8 @@ public class ePageController implements Initializable {
     ComboBox<String> keyBox;
     @FXML
     ComboBox<String> hashBox;
-
+    @FXML
+    CheckBox def;
 
 
 
@@ -43,6 +44,7 @@ public class ePageController implements Initializable {
             setkeyTypes();
             sethashTypes();
             setDefault();
+            defaultListner();
     }
 
 
@@ -131,4 +133,18 @@ public class ePageController implements Initializable {
         hashBox.setDisable(true);
         keyBox.setDisable(true);
     }
+
+    /**----------default checkbox implementation---------------- */
+    private void defaultListner(){
+        def.selectedProperty().addListener((o,ov,nv)->{
+            if(nv){
+                setDefault();
+            }else{
+                hashBox.setDisable(false);
+                keyBox.setDisable(false);
+            }
+        });
+
+    }
+
 }

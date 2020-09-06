@@ -55,7 +55,7 @@
       <Label layoutX="72.0" layoutY="248.0" text="Key Size: " />
       <ComboBox fx:id="keyBox" layoutX="132.0" layoutY="244.0" prefHeight="25.0" prefWidth="95.0" />
       <Label layoutX="254.0" layoutY="248.0" text="Password hashing Algorithm :" />
-      <ComboBox layoutX="425.0" layoutY="244.0" prefHeight="25.0" prefWidth="123.0" />
+      <ComboBox fx:id="hashBox" layoutX="425.0" layoutY="244.0" prefHeight="25.0" prefWidth="123.0" />
       <Label layoutX="67.0" layoutY="124.0" text="Password :">
          <font>
             <Font size="15.0" />

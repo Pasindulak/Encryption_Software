@@ -23,7 +23,7 @@ public class ePageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+            addToggleListner();
     }
 
 
@@ -52,6 +52,16 @@ public class ePageController implements Initializable {
 
             }
         }
+    }
+    /**-------method for toggle button to clear path text------------*/
+
+
+    private void addToggleListner(){
+          option.selectedToggleProperty().addListener((ov , old , n) -> {
+              if(old!=n)
+                  path.setText("");
+              System.out.println(ov);
+          });
     }
 
 }

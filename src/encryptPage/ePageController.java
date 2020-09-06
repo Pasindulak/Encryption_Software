@@ -4,9 +4,7 @@ import MainPage.PageController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -20,10 +18,21 @@ public class ePageController implements Initializable {
     ToggleGroup option;
     @FXML
     TextField path;
+    @FXML
+    CheckBox SP;
+    @FXML
+    TextField passT;
+    @FXML
+    TextField cPassT;
+    @FXML
+    PasswordField passP;
+    @FXML
+    PasswordField cPassP;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
             addToggleListner();
+            showPass();
     }
 
 
@@ -67,6 +76,33 @@ public class ePageController implements Initializable {
                   path.setText(temp);
               }
           });
-    }
+    }//addToggle
 
+    /**------------show password method------------*/
+
+    private void showPass(){
+        passT.textProperty().bind(passP.textProperty());
+        cPassT.textProperty().bind(cPassP.textProperty());
+       SP.selectedProperty().addListener((ov,o,n)->{
+           if(n){
+               passP.setVisible(false);
+               cPassP.setVisible(false);
+               passT.setVisible(true);
+               cPassT.setVisible(true);
+              passT.textProperty().unbind();
+               passP.textProperty().bind(passT.textProperty());
+               cPassT.textProperty().unbind();
+               cPassP.textProperty().bind(cPassT.textProperty());
+           }else{
+               passP.setVisible(true);
+               cPassP.setVisible(true);
+               passT.setVisible(false);
+               cPassT.setVisible(false);
+               passP.textProperty().unbind();
+               passT.textProperty().bind(passP.textProperty());
+               cPassP.textProperty().unbind();
+               cPassT.textProperty().bind(cPassP.textProperty());
+           }
+       });
+    }
 }

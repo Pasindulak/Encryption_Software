@@ -24,8 +24,8 @@
             <Image url="@../ico/back.png" />
          </image>
       </ImageView>
-      <TextField layoutX="66.0" layoutY="86.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
-      <Button layoutX="441.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
+      <TextField fx:id="path" layoutX="66.0" layoutY="86.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
+      <Button layoutX="441.0" layoutY="85.0" mnemonicParsing="false" onAction="#browse" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
       <ToggleButton layoutX="133.0" layoutY="38.0" mnemonicParsing="false" selected="true" stylesheets="@../Css/bootstrap3.css" text="File">
          <toggleGroup>
             <ToggleGroup fx:id="option" />

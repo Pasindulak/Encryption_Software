@@ -28,11 +28,15 @@ public class ePageController implements Initializable {
     PasswordField passP;
     @FXML
     PasswordField cPassP;
+    @FXML
+    ComboBox<String> keyBox;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
             addToggleListner();
             showPass();
+            setkeyType();
     }
 
 
@@ -104,5 +108,12 @@ public class ePageController implements Initializable {
                cPassT.textProperty().bind(cPassP.textProperty());
            }
        });
+    }
+
+    /**---------implementation of combobox----------- */
+ String [] keyTypes = {"128 bits","192 bits","256 bits"};
+    private void setkeyType(){
+        keyBox.getItems().setAll(keyTypes);
+        keyBox.getSelectionModel().select(0);
     }
 }

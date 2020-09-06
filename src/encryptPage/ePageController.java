@@ -36,18 +36,22 @@ public class ePageController implements Initializable {
     @FXML
     private void browse(ActionEvent event) {
         String selectedButton = ((ToggleButton)option.getSelectedToggle()).getText();
-        System.out.println(selectedButton);
         if(selectedButton.equals("File")) {
             FileChooser fileChooser = new FileChooser();
+            try {
+                path.setText(fileChooser.showOpenDialog(path.getScene().getWindow()).getPath());
+            }catch (Exception e){
 
-            fileChooser.showOpenDialog(path.getScene().getWindow());
+            }
 
         }else {
             DirectoryChooser directoryChooser = new DirectoryChooser();
-            directoryChooser.showDialog(path.getScene().getWindow());
+            try {
+                path.setText(directoryChooser.showDialog(path.getScene().getWindow()).getPath());
+            }catch (Exception e){
+
+            }
         }
     }
-
-
 
 }

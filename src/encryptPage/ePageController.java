@@ -58,9 +58,14 @@ public class ePageController implements Initializable {
 
     private void addToggleListner(){
           option.selectedToggleProperty().addListener((ov , old , n) -> {
-              if(old!=n)
+              if(n!=null) {
                   path.setText("");
-              System.out.println(ov);
+              }
+              else{
+                  String temp = path.getText();
+                  option.selectToggle(old);
+                  path.setText(temp);
+              }
           });
     }
 

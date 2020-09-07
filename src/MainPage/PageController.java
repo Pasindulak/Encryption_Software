@@ -1,7 +1,6 @@
 package MainPage;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +17,12 @@ import java.util.ResourceBundle;
 
 public class PageController implements Initializable {
 
+    /**
+     * ------Encrypt and Decrypt buttons' methos-------------
+     */
+    public static AnchorPane mainPane;
+    public static AnchorPane bodyPane;  // parent pain
+    final int epageHeight = 430;
     @FXML
     Button encrypt;
     @FXML
@@ -30,6 +35,11 @@ public class PageController implements Initializable {
     AnchorPane mPane;
     @FXML
     BorderPane bPane;
+    /**
+     * ----method for drag feature to the window------------
+     */
+    double x;
+    double y;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,45 +47,40 @@ public class PageController implements Initializable {
     }
 
     @FXML
-    private void minimize(MouseEvent e){
+    private void minimize(MouseEvent e) {
         ((Stage) header.getScene().getWindow()).setIconified(true);
     }
+
     @FXML
-    private void shutdown(MouseEvent e){
+    private void shutdown(MouseEvent e) {
         ((Stage) header.getScene().getWindow()).close();
     }
 
-             /**----method for drag feature to the window------------*/
-        double x;
-        double y;
-    private void dragOn(){
+    private void dragOn() {
         header.setOnMousePressed(event -> {
-           x= event.getSceneX();
-           y = event.getSceneY();
+            x = event.getSceneX();
+            y = event.getSceneY();
         });
         header.setOnMouseDragged(event -> {
-           Stage stage = (Stage) header.getScene().getWindow();
-           stage.setX(event.getScreenX()-x);
-           stage.setY(event.getScreenY()-y);
+            Stage stage = (Stage) header.getScene().getWindow();
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
         });
     }
 
-         /**------Encrypt and Decrypt buttons' methos-------------*/
-public static AnchorPane mainPane;
-    public static AnchorPane bodyPane;  // parent pain
-    final int epageHeight = 430;
-        @FXML
+    @FXML
     private void encryptBtn(ActionEvent event) throws IOException {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
-            mainPane = mPane;
-            bodyPane = body;    // parent pain
-            body.getChildren().setAll(pane);
-        }
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
+        mainPane = mPane;
+        bodyPane = body;    // parent pain
+        body.getChildren().setAll(pane);
+    }
+
     @FXML
     private void decryptBtn(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/decryptPage/dPage.fxml"));
         mainPane = mPane;
         bodyPane = body;
-       body.getChildren().setAll(pane);
+        body.getChildren().setAll(pane);
     }
 }

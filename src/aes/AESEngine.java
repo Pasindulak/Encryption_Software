@@ -2,8 +2,9 @@ package aes;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.*;
-import java.security.Key;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -30,21 +31,21 @@ public class AESEngine {
         return new SecretKeySpec(arr, "AES");
     }
 
-    public boolean crypt(File inputFile){
+    public boolean crypt(File inputFile) {
         try {
             if (inputFile.isDirectory())
                 recuCryption(inputFile);
             else
                 doCrypt(inputFile);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    private void recuCryption(File inputFile){
-        for (File file: inputFile.listFiles()) {
-            if(file.isDirectory()) {
+    private void recuCryption(File inputFile) {
+        for (File file : inputFile.listFiles()) {
+            if (file.isDirectory()) {
                 recuCryption(file);
                 continue;
             }
@@ -52,22 +53,22 @@ public class AESEngine {
         }
     }
 
-    private void doCrypt(File file){
+    private void doCrypt(File file) {
 
-     try {
-     byte [] data = new byte[(int)file.length()];
-         FileInputStream inputStream = new FileInputStream(file);
-         inputStream.read(data);
-         inputStream.close();
-         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
-         cipher.init(mode,key);
-         byte [] temp = cipher.doFinal(data);
-         FileOutputStream outputStream = new FileOutputStream(file);
-         outputStream.write(temp);
-         outputStream.close();
-     } catch (Exception e) {
-         e.printStackTrace();
-     }
+        try {
+            byte[] data = new byte[(int) file.length()];
+            FileInputStream inputStream = new FileInputStream(file);
+            inputStream.read(data);
+            inputStream.close();
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
+            cipher.init(mode, key);
+            byte[] temp = cipher.doFinal(data);
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(temp);
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

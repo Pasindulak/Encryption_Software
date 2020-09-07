@@ -1,6 +1,7 @@
 package encryptPage;
 
 import MainPage.PageController;
+import aes.AESEngine;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
+import javax.crypto.Cipher;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,6 +37,12 @@ public class ePageController implements Initializable {
     ComboBox<String> hashBox;
     @FXML
     CheckBox def;
+    @FXML
+    Button encBTN;
+    @FXML
+    Button canBTN;
+    @FXML
+    ProgressBar pBar;
 
 
 
@@ -146,5 +155,19 @@ public class ePageController implements Initializable {
         });
 
     }
+  /**----------method for encrypt button-----------*/
 
+  @FXML
+  private void encrypt(ActionEvent e){
+       canBTN.setDisable(false);
+       encBTN.setDisable(true);
+       pBar.setVisible(true);
+      AESEngine aesEngine = new AESEngine(passT.getText(),hashBox.getValue(),
+              Integer.parseInt(keyBox.getValue().substring(0,3))/8, Cipher.ENCRYPT_MODE);
+      File file = new File(path.getText());
+      aesEngine.crypt(file);
+      canBTN.setDisable(true);
+      encBTN.setDisable(false);
+      pBar.setVisible(false);
+  }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -60,21 +59,13 @@
          </font>
       </Label>
       <Separator layoutX="68.0" layoutY="283.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" />
-      <Button fx:id="encBTN" layoutX="364.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#encrypt" prefHeight="43.0" prefWidth="95.0" text="Decrypt!">
-         <stylesheets>
-            <URL value="@../Css/bootstrap3.css" />
-            <URL value="@../Css/ePage.css" />
-         </stylesheets>
+      <Button fx:id="encBTN" layoutX="364.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="43.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Decrypt!">
          <styleClass>
             <String fx:value="danger" />
             <String fx:value="enc" />
          </styleClass>
       </Button>
-      <Button fx:id="canBTN" disable="true" layoutX="473.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="49.0" prefWidth="95.0" text="Cancel">
-         <stylesheets>
-            <URL value="@../Css/bootstrap3.css" />
-            <URL value="@../Css/ePage.css" />
-         </stylesheets>
+      <Button fx:id="canBTN" disable="true" layoutX="473.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="49.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Cancel">
          <styleClass>
             <String fx:value="warning" />
             <String fx:value="enc" />
@@ -92,5 +83,6 @@
       </Label>
       <PasswordField fx:id="passP" layoutX="195.0" layoutY="169.0" prefHeight="25.0" prefWidth="234.0" />
       <ProgressBar fx:id="pBar" layoutX="75.0" layoutY="334.0" prefHeight="18.0" prefWidth="263.0" styleClass="success" stylesheets="@../Css/bootstrap3.css" visible="false" />
+      <TextField fx:id="passT" layoutX="196.0" layoutY="169.0" prefHeight="25.0" prefWidth="234.0" visible="false" />
    </children>
 </AnchorPane>

@@ -26,18 +26,15 @@
       <TextField fx:id="path" layoutX="76.0" layoutY="105.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
       <Button layoutX="451.0" layoutY="104.0" mnemonicParsing="false" onAction="#browse" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
       <ToggleButton layoutX="143.0" layoutY="48.0" mnemonicParsing="false" selected="true" stylesheets="@../Css/bootstrap3.css" text="File">
-         <toggleGroup>
-            <ToggleGroup fx:id="option" />
-         </toggleGroup>
          <styleClass>
             <String fx:value="first" />
             <String fx:value="primary" />
          </styleClass>
-      </ToggleButton>
-      <ToggleButton layoutX="186.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../Css/bootstrap3.css" text="Folder">
          <toggleGroup>
             <ToggleGroup fx:id="option" />
          </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="186.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../Css/bootstrap3.css" text="Folder" toggleGroup="$option">
          <styleClass>
             <String fx:value="last" />
             <String fx:value="primary" />

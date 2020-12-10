@@ -1,14 +1,20 @@
 package decryptPage;
 
 import MainPage.PageController;
+import aes.AESEngine;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
+import javafx.scene.layout.Pane;
+import javafx.stage.*;
 
+import javax.crypto.Cipher;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,7 +32,7 @@ public class dPageController implements Initializable {
     @FXML
     PasswordField passP;
     @FXML
-    Button encBTN;
+    Button decBTN;
     @FXML
     Button canBTN;
     @FXML
@@ -47,7 +53,7 @@ public class dPageController implements Initializable {
         addToggleListner();
     }
 
-     @FXML
+    @FXML
     private void browse(ActionEvent event) {
         String selectedButton = ((ToggleButton) option.getSelectedToggle()).getText();
         if (selectedButton.equals("File")) {
@@ -68,7 +74,9 @@ public class dPageController implements Initializable {
         }
     }
 
-       /** -------method for toggle button to clear path text------------*/
+    /**
+     * -------method for toggle button to clear path text------------
+     */
 
     private void addToggleListner() {
         option.selectedToggleProperty().addListener((ov, old, n) -> {
@@ -82,7 +90,9 @@ public class dPageController implements Initializable {
         });
     }//addToggle
 
-    /** ------------show password method------------ */
+    /**
+     * ------------show password method------------
+     */
 
     private void showPass() {
         passT.textProperty().bind(passP.textProperty());
@@ -102,17 +112,63 @@ public class dPageController implements Initializable {
     }
 
     @FXML
-    private void decrypt(ActionEvent event){
-       if(checkInputs()){
+    private void decrypt(ActionEvent event) {
+        if (checkInputs()) {
+            pWarn.setText("");
 
-       }
+            File file = new File(path.getText());
+            String keySize;
+            String hashType;
+            AESEngine aesEngine;
+            if (AESEngine.checkForSave(file)) {
+                byte[] meta = AESEngine.getSavedData(file);
+                keySize = keyTypes[meta[0] - 48];
+                hashType = hashTypes[meta[1] - 48];
+                aesEngine = new AESEngine(
+                        passT.getText(), hashType,
+                        Integer.parseInt(keySize.substring(0, 3)) / 8,
+                        Cipher.DECRYPT_MODE
+                );
+                aesEngine.setSaved(true);
+
+            }else{
+                 Pane root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("prompt.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UTILITY);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setResizable(false);
+                stage.showAndWait();
+                aesEngine = new AESEngine(
+                        passT.getText(),PromptController.hashType,
+                        Integer.parseInt(PromptController.keyType.substring(0, 3)) / 8,
+                        Cipher.DECRYPT_MODE
+                );
+                aesEngine.setSaved(false);
+                canBTN.setDisable(false);
+                decBTN.setDisable(true);
+                pBar.setVisible(true);
+            }
+            aesEngine.crypt(file);
+            canBTN.setDisable(true);
+            decBTN.setDisable(false);
+            pBar.setVisible(false);
+        }
     }
-    private boolean checkInputs(){
+
+    private boolean checkInputs() {
         boolean ret = true;
-        if(path.getText().equals("") || path.getText()==null){
+        if (path.getText().equals("") || path.getText() == null) {
             ret = false;
             path.setPromptText("Please Select a file or folder to Encrypt");
-        }if(passT.getText().equals("") || passT.getText()==null){
+        }
+        if (passT.getText().equals("") || passT.getText() == null) {
             ret = false;
             pWarn.setText("Password Field cannot be\nEmpty!");
         }

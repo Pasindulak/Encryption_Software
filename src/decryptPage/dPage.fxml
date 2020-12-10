@@ -48,7 +48,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="encBTN" layoutX="364.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="43.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Decrypt!">
+      <Button fx:id="decBTN" layoutX="364.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decrypt" prefHeight="43.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Decrypt!">
          <styleClass>
             <String fx:value="danger" />
             <String fx:value="enc" />
@@ -72,7 +72,7 @@
       </Label>
       <PasswordField fx:id="passP" layoutX="195.0" layoutY="195.0" prefHeight="25.0" prefWidth="234.0" />
       <ProgressBar fx:id="pBar" layoutX="75.0" layoutY="334.0" prefHeight="18.0" prefWidth="263.0" styleClass="success" stylesheets="@../Css/bootstrap3.css" visible="false" />
-      <TextField fx:id="passT" layoutX="196.0" layoutY="169.0" prefHeight="25.0" prefWidth="234.0" visible="false" />
+      <TextField fx:id="passT" layoutX="195.0" layoutY="195.0" prefHeight="25.0" prefWidth="234.0" visible="false" />
       <Label fx:id="pWarn" alignment="CENTER" layoutX="241.0" layoutY="228.0" prefHeight="32.0" prefWidth="143.0" textAlignment="CENTER" textFill="#bc0000">
          <font>
             <Font size="11.0" />

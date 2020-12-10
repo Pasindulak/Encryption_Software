@@ -150,6 +150,8 @@ public class ePageController implements Initializable {
         keyBox.getSelectionModel().select(2);
         hashBox.setDisable(true);
         keyBox.setDisable(true);
+        save.setDisable(true);
+        save.setSelected(true);
     }
 
     /**
@@ -162,6 +164,8 @@ public class ePageController implements Initializable {
             } else {
                 hashBox.setDisable(false);
                 keyBox.setDisable(false);
+                save.setDisable(false);
+                save.setSelected(false);
             }
         });
 

@@ -34,6 +34,6 @@
       <ComboBox fx:id="keyBox" layoutX="39.0" layoutY="90.0" prefHeight="25.0" prefWidth="95.0" />
       <Label layoutX="192.0" layoutY="69.0" text="Password hashing Algorithm :" />
       <ComboBox fx:id="hashBox" layoutX="209.0" layoutY="90.0" prefHeight="25.0" prefWidth="123.0" />
-      <Button layoutX="307.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="68.0" styleClass="warning" text="OK" />
+      <Button layoutX="307.0" layoutY="130.0" mnemonicParsing="false" onAction="#ok" prefHeight="17.0" prefWidth="68.0" styleClass="warning" text="OK" />
    </children>
 </AnchorPane>

@@ -183,7 +183,7 @@ public class AESEngine {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(temp);
+        //System.out.println(Arrays.toString(temp));
       return  Arrays.copyOfRange(temp,5,sizeOfMeta);
     }
 

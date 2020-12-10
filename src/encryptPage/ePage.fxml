@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -106,5 +107,13 @@
          </font></Label>
       <PasswordField fx:id="passP" layoutX="207.0" layoutY="122.0" prefHeight="25.0" prefWidth="234.0" />
       <PasswordField fx:id="cPassP" layoutX="207.0" layoutY="154.0" prefHeight="25.0" prefWidth="234.0" />
+      <CheckBox layoutX="364.0" layoutY="202.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="123.0" stylesheets="@../Css/bootstrap3.css" text="Save Settings">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Select to save settings to the file as &#10;meta data. If not selected, you need &#10;to remember settings &#10;when decrypting" />
+         </tooltip>
+      </CheckBox>
    </children>
 </AnchorPane>

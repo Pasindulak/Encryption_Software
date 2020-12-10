@@ -43,6 +43,8 @@ public class ePageController implements Initializable {
     Button canBTN;
     @FXML
     ProgressBar pBar;
+    @FXML
+    CheckBox save;
     /**
      * ---------implementation of combobox-----------
      */
@@ -177,6 +179,7 @@ public class ePageController implements Initializable {
                 Integer.parseInt(keyBox.getValue().substring(0, 3)) / 8,
                 Cipher.ENCRYPT_MODE);
         File file = new File(path.getText());
+        aesEngine.setSave(save.isSelected());
         aesEngine.crypt(file);
         canBTN.setDisable(true);
         encBTN.setDisable(false);

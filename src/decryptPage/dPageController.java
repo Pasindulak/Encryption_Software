@@ -26,15 +26,13 @@ public class dPageController implements Initializable {
     @FXML
     PasswordField passP;
     @FXML
-    ComboBox<String> keyBox;
-    @FXML
-    ComboBox<String> hashBox;
-    @FXML
     Button encBTN;
     @FXML
     Button canBTN;
     @FXML
     ProgressBar pBar;
+    @FXML
+    Label pWarn;
     /**
      * ---------implementation of combobox-----------
      */
@@ -47,8 +45,6 @@ public class dPageController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         showPass();
         addToggleListner();
-        sethashTypes();
-        setkeyTypes();
     }
 
      @FXML
@@ -105,13 +101,24 @@ public class dPageController implements Initializable {
         });
     }
 
-    private void setkeyTypes() {
-        keyBox.getItems().setAll(keyTypes);
+    @FXML
+    private void decrypt(ActionEvent event){
+       if(checkInputs()){
+
+       }
+    }
+    private boolean checkInputs(){
+        boolean ret = true;
+        if(path.getText().equals("") || path.getText()==null){
+            ret = false;
+            path.setPromptText("Please Select a file or folder to Encrypt");
+        }if(passT.getText().equals("") || passT.getText()==null){
+            ret = false;
+            pWarn.setText("Password Field cannot be\nEmpty!");
+        }
+        return ret;
     }
 
-    private void sethashTypes() {
-        hashBox.getItems().setAll(hashTypes);
-    }
 
     @FXML
     private void back(MouseEvent event) {

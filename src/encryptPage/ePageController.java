@@ -45,6 +45,8 @@ public class ePageController implements Initializable {
     ProgressBar pBar;
     @FXML
     CheckBox save;
+    @FXML
+    Label pWarn;
     /**
      * ---------implementation of combobox-----------
      */
@@ -171,6 +173,8 @@ public class ePageController implements Initializable {
 
     @FXML
     private void encrypt(ActionEvent e) {
+        if(checkInputs()){
+            pWarn.setText("");
         canBTN.setDisable(false);
         encBTN.setDisable(true);
         pBar.setVisible(true);
@@ -184,5 +188,30 @@ public class ePageController implements Initializable {
         canBTN.setDisable(true);
         encBTN.setDisable(false);
         pBar.setVisible(false);
+        }
+    }
+
+    private boolean checkInputs(){
+        boolean ret = true;
+        if(path.getText().equals("") || path.getText()==null){
+            ret = false;
+            path.setPromptText("Please Select a file or folder to Encrypt");
+        }if(passT.getText().equals("") || passT.getText()==null){
+            ret = false;
+            pWarn.setText("Password Field cannot be\nEmpty!");
+        }if(!passT.getText().equals(cPassT.getText())){
+            ret=false;
+            if(SP.isSelected()){
+                passT.clear();
+                cPassT.clear();
+
+            }else{
+                passP.clear();
+                cPassP.clear();
+            }
+
+            pWarn.setText("Passwords does not match!");
+        }
+        return ret;
     }
 }

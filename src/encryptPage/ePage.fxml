@@ -115,5 +115,10 @@
             <Tooltip text="Select to save settings to the file as &#10;meta data. If not selected, you need &#10;to remember settings &#10;when decrypting" />
          </tooltip>
       </CheckBox>
+      <Label fx:id="pWarn" alignment="CENTER" layoutX="446.0" layoutY="123.0" prefHeight="32.0" prefWidth="143.0" textAlignment="CENTER" textFill="#bc0000">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

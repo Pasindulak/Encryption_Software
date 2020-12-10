@@ -48,13 +48,13 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="decBTN" layoutX="364.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decrypt" prefHeight="43.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Decrypt!">
+      <Button fx:id="decBTN" layoutX="364.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decrypt" prefHeight="50.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Decrypt!">
          <styleClass>
             <String fx:value="danger" />
             <String fx:value="enc" />
          </styleClass>
       </Button>
-      <Button fx:id="canBTN" disable="true" layoutX="473.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="49.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Cancel">
+      <Button fx:id="canBTN" disable="true" layoutX="473.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="49.0" prefWidth="95.0" stylesheets="@../Css/bootstrap3.css" text="Cancel">
          <styleClass>
             <String fx:value="warning" />
             <String fx:value="enc" />
@@ -71,11 +71,16 @@
          </font>
       </Label>
       <PasswordField fx:id="passP" layoutX="195.0" layoutY="195.0" prefHeight="25.0" prefWidth="234.0" />
-      <ProgressBar fx:id="pBar" layoutX="75.0" layoutY="334.0" prefHeight="18.0" prefWidth="263.0" styleClass="success" stylesheets="@../Css/bootstrap3.css" visible="false" />
       <TextField fx:id="passT" layoutX="195.0" layoutY="195.0" prefHeight="25.0" prefWidth="234.0" visible="false" />
       <Label fx:id="pWarn" alignment="CENTER" layoutX="241.0" layoutY="228.0" prefHeight="32.0" prefWidth="143.0" textAlignment="CENTER" textFill="#bc0000">
          <font>
             <Font size="11.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="pBar" layoutX="63.0" layoutY="271.0" prefHeight="9.0" prefWidth="500.0" styleClass="primary" stylesheets="@../Css/bootstrap3.css" visible="false" />
+      <Label fx:id="status" layoutX="107.0" layoutY="300.0" prefHeight="40.0" prefWidth="143.0">
+         <font>
+            <Font size="28.0" />
          </font>
       </Label>
    </children>

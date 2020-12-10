@@ -2,6 +2,7 @@ package encryptPage;
 
 import MainPage.PageController;
 import aes.AESEngine;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,12 +48,14 @@ public class ePageController implements Initializable {
     CheckBox save;
     @FXML
     Label pWarn;
+    @FXML
+    Label status;
     /**
      * ---------implementation of combobox-----------
      */
     String[] keyTypes = {"128 bits", "192 bits", "256 bits"};
     String[] hashTypes = {"MD5", "SHA-1", "SHA-256", "SHA-384", "SHA-512"};
-
+    private Thread thread;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addToggleListner();
@@ -177,24 +180,60 @@ public class ePageController implements Initializable {
 
     @FXML
     private void encrypt(ActionEvent e) {
-        if(checkInputs()){
-            pWarn.setText("");
-        canBTN.setDisable(false);
-        encBTN.setDisable(true);
-        pBar.setVisible(true);
-        AESEngine aesEngine = new AESEngine(passT.getText(),
-                hashBox.getValue(),
-                Integer.parseInt(keyBox.getValue().substring(0, 3)) / 8,
-                Cipher.ENCRYPT_MODE);
-        File file = new File(path.getText());
-        aesEngine.setSave(save.isSelected());
-        aesEngine.crypt(file);
-        canBTN.setDisable(true);
-        encBTN.setDisable(false);
-        pBar.setVisible(false);
-        }
-    }
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if(checkInputs()){
+                    Platform.runLater(()->{
 
+                        pWarn.setText("");
+                        canBTN.setDisable(false);
+                        encBTN.setDisable(true);
+                        pBar.setVisible(true);
+                    });
+                    AESEngine aesEngine = new AESEngine(passT.getText(),
+                            hashBox.getValue(),
+                            Integer.parseInt(keyBox.getValue().substring(0, 3)) / 8,
+                            Cipher.ENCRYPT_MODE);
+                    File file = new File(path.getText());
+                    aesEngine.setSave(save.isSelected());
+                    boolean stat = aesEngine.crypt(file);
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
+                    Platform.runLater(()->{
+                        if(stat){
+
+                            status.setStyle("-fx-text-fill:green");
+                            status.setText("Encrypted!");
+                            pBar.setProgress(1.0);
+                            pBar.getStyleClass().add("success");
+
+                        }else{
+                            status.setStyle("-fx-text-fill:red");
+                            status.setText("Failed!");
+                            pBar.setProgress(1.0);
+                            pBar.getStyleClass().add("danger");
+
+                        }
+                        canBTN.setDisable(true);
+                        encBTN.setDisable(false);
+
+                    });
+                }
+
+
+            }
+        });
+        this.thread = thread;
+thread.start();
+    }
+   @FXML
+   private void cancel(ActionEvent event){
+        thread.start();
+   }
     private boolean checkInputs(){
         boolean ret = true;
         if(path.getText().equals("") || path.getText()==null){

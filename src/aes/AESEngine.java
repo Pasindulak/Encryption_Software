@@ -57,7 +57,7 @@ public class AESEngine {
         }
     }
 
-    private void recuCryption(File inputFile) {
+    private void recuCryption(File inputFile) throws Exception {
         for (File file : inputFile.listFiles()) {
             if (file.isDirectory()) {
                 recuCryption(file);
@@ -67,9 +67,9 @@ public class AESEngine {
         }
     }
 
-    private void doCrypt(File file) {
+    private void doCrypt(File file) throws Exception{
 
-        try {
+
             byte[] data = new byte[(int) file.length()];
             FileInputStream inputStream = new FileInputStream(file);
             inputStream.read(data);
@@ -94,9 +94,7 @@ public class AESEngine {
                 outputStream.write(temp);
             }
             outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     private byte getKeyByte() {

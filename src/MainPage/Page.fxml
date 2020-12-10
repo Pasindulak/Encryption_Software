@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -83,38 +83,41 @@
          <children>
             <AnchorPane fx:id="mPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0">
                <children>
-                  <Button id="en" fx:id="encrypt" alignment="CENTER" contentDisplay="TOP" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" onAction="#encryptBtn" prefHeight="184.0" prefWidth="184.0" text="Encrypt" textFill="#3b5bff" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Footlight MT Light" size="32.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ico/encrypt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <stylesheets>
-                        <URL value="@../Css/bootstrap3.css" />
-                        <URL value="@../Css/MP.css" />
-                     </stylesheets>
-                  </Button>
-                  <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" layoutX="324.0" layoutY="100.0" mnemonicParsing="false" onAction="#decryptBtn" prefHeight="184.0" prefWidth="184.0" text="Decrypt" textFill="#d93dff" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Footlight MT Light" size="32.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ico/decrypt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <stylesheets>
-                        <URL value="@../Css/bootstrap3.css" />
-                        <URL value="@../Css/MP.css" />
-                     </stylesheets>
-                  </Button>
+                  <TabPane layoutY="7.0" prefHeight="377.0" prefWidth="736.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="377.0" tabMaxWidth="736.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Encrypt">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="229.0" prefWidth="600.0" />
+                        </content>
+                           <graphic>
+                              <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ico/encrypt.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                      </Tab>
+                      <Tab text="Decrypt">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                        </content>
+                           <graphic>
+                              <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ico/decrypt.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                      </Tab>
+                    </tabs>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" top="10.0" />
+                     </opaqueInsets>
+                  </TabPane>
                </children>
             </AnchorPane>
          </children>

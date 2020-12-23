@@ -232,7 +232,7 @@ thread.start();
     }
    @FXML
    private void cancel(ActionEvent event){
-        thread.start();
+        thread.stop();
    }
     private boolean checkInputs(){
         boolean ret = true;

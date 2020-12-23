@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,6 +37,7 @@ public class PromptController implements Initializable {
     private void ok(ActionEvent event){
         keyType = keyBox.getValue();
         hashType = hashBox.getValue();
-        ((Stage)keyBox.getScene().getWindow()).close();
+        Stage stage = ((Stage)keyBox.getScene().getWindow());
+        stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 }

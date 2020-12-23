@@ -174,6 +174,9 @@ public class AESEngine {
         FileInputStream stream = null;
         byte [] temp = new byte[sizeOfMeta];
         try {
+            if (inputFile.isDirectory()) {
+                inputFile = inputFile.listFiles()[0];
+            }
             stream = new FileInputStream(inputFile);
             stream.read(temp,0,sizeOfMeta);
         } catch (FileNotFoundException e) {

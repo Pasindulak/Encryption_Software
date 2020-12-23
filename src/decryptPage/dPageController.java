@@ -4,6 +4,7 @@ import MainPage.PageController;
 import aes.AESEngine;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -138,8 +139,9 @@ public class dPageController implements Initializable {
                             Cipher.DECRYPT_MODE
                     );
                     aesEngine.setSaved(true);
-
+                    crypt(aesEngine,file);
                 }else{
+                    final Stage[] stage = new Stage[1];
                     Platform.runLater(()->{
                         Pane root = null;
                         try {
@@ -148,43 +150,57 @@ public class dPageController implements Initializable {
                             e.printStackTrace();
                         }
                         Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.initStyle(StageStyle.UTILITY);
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.setResizable(false);
-                        stage.showAndWait();
-                        canBTN.setDisable(false);
-                        decBTN.setDisable(true);
-                        pBar.setVisible(true);
+                        stage[0] = new Stage();
+                        stage[0].setScene(scene);
+                        stage[0].initStyle(StageStyle.UTILITY);
+                        stage[0].initModality(Modality.APPLICATION_MODAL);
+                        stage[0].setResizable(false);
+                        stage[0].show();
+                        stage[0].setOnCloseRequest(new EventHandler<WindowEvent>() {
+                            @Override
+                            public void handle(WindowEvent event) {
+                                AESEngine aesEngine = new AESEngine(
+                                        passT.getText(),PromptController.hashType,
+                                        Integer.parseInt(PromptController.keyType.substring(0, 3)) / 8,
+                                        Cipher.DECRYPT_MODE
+                                );
+                                aesEngine.setSaved(false);
+                                canBTN.setDisable(false);
+                                decBTN.setDisable(true);
+                                pBar.setVisible(true);
+                                crypt(aesEngine,file);
+                            }
+                        });
+
                     });
-                    aesEngine = new AESEngine(
-                            passT.getText(),PromptController.hashType,
-                            Integer.parseInt(PromptController.keyType.substring(0, 3)) / 8,
-                            Cipher.DECRYPT_MODE
-                    );
-                    aesEngine.setSaved(false);
+
+
                 }
-                boolean stat = aesEngine.crypt(file);
-                Platform.runLater(()->{
-                    if(stat){
-                        status.setStyle("-fx-text-fill:green");
-                        status.setText("Encrypted!");
-                        pBar.setProgress(1.0);
-                        pBar.getStyleClass().add("success");
-                    }else{
-                        status.setStyle("-fx-text-fill:red");
-                        status.setText("Failed!");
-                        pBar.setProgress(1.0);
-                        pBar.getStyleClass().add("danger");
-                    }
-                    canBTN.setDisable(true);
-                    decBTN.setDisable(false);
-                });
+
+
             }
         });
         this.thread = thread;
         thread.start();
+    }
+    public void crypt(AESEngine aesEngine,File file){
+
+        boolean stat = aesEngine.crypt(file);
+        Platform.runLater(()->{
+            if(stat){
+                status.setStyle("-fx-text-fill:green");
+                status.setText("Decrypted!");
+                pBar.setProgress(1.0);
+                pBar.getStyleClass().add("success");
+            }else{
+                status.setStyle("-fx-text-fill:red");
+                status.setText("Failed!");
+                pBar.setProgress(1.0);
+                pBar.getStyleClass().add("danger");
+            }
+            canBTN.setDisable(true);
+            decBTN.setDisable(false);
+        });
     }
 
     @FXML

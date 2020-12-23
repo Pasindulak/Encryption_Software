@@ -3,6 +3,8 @@ package decryptPage;
 import MainPage.PageController;
 import aes.AESEngine;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -184,23 +186,41 @@ public class dPageController implements Initializable {
         thread.start();
     }
     public void crypt(AESEngine aesEngine,File file){
-
-        boolean stat = aesEngine.crypt(file);
-        Platform.runLater(()->{
-            if(stat){
-                status.setStyle("-fx-text-fill:green");
-                status.setText("Decrypted!");
-                pBar.setProgress(1.0);
-                pBar.getStyleClass().add("success");
-            }else{
-                status.setStyle("-fx-text-fill:red");
-                status.setText("Failed!");
-                pBar.setProgress(1.0);
-                pBar.getStyleClass().add("danger");
+        Task<Void> sleeper = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                }
+                return null;
             }
-            canBTN.setDisable(true);
-            decBTN.setDisable(false);
+        };
+        sleeper.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+
+                boolean stat = aesEngine.crypt(file);
+                Platform.runLater(()->{
+                    if(stat){
+                        status.setStyle("-fx-text-fill:green");
+                        status.setText("Decrypted!");
+                        pBar.setProgress(1.0);
+                        pBar.getStyleClass().add("success");
+                    }else{
+                        status.setStyle("-fx-text-fill:red");
+                        status.setText("Failed!");
+                        pBar.setProgress(1.0);
+                        pBar.getStyleClass().add("danger");
+                    }
+                    canBTN.setDisable(true);
+                    decBTN.setDisable(false);
+                });
+            }
         });
+        new Thread(sleeper).start();
+
+
     }
 
     @FXML

@@ -25,3 +25,6 @@
 #de:hover, #en:hover{
  -fx-background-color: #b3b8c9;
 }
+.tabpane{
+-fx-background-color: #6a81e6;
+}

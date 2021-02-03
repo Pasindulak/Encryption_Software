@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -69,18 +70,26 @@ public class PageController implements Initializable {
     }
 
     @FXML
-    private void encryptBtn(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
-        mainPane = mPane;
-        bodyPane = body;    // parent pain
-        body.getChildren().setAll(pane);
+    private void encryptBtn(ActionEvent event) {
+//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
+//        mainPane = mPane;
+//        bodyPane = body;    // parent pain
+//        body.getChildren().setAll(pane);
+        System.out.println("You clicked me!");
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("encryptPage", "ePage");
+        bPane.setCenter(view);
     }
 
     @FXML
-    private void decryptBtn(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/decryptPage/dPage.fxml"));
-        mainPane = mPane;
-        bodyPane = body;
-        body.getChildren().setAll(pane);
+    private void decryptBtn(ActionEvent event) {
+//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/decryptPage/dPage.fxml"));
+//        mainPane = mPane;
+//        bodyPane = body;
+//        body.getChildren().setAll(pane);
+        System.out.println("You clicked me!");
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("decryptPage", "dPage");
+        bPane.setCenter(view);
     }
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Encryption Software.iml" filepath="$PROJECT_DIR$/Encryption Software.iml" />
+      <module fileurl="file://$PATH_TO_FX$/lib.iml" filepath="$PATH_TO_FX$/lib.iml" />
     </modules>
   </component>
 </project>

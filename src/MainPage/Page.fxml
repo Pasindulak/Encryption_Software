@@ -80,7 +80,7 @@
       </AnchorPane>
    </top>
    <left>
-      <VBox prefHeight="384.0" prefWidth="192.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="384.0" prefWidth="192.0" style="-fx-background-color: #0039cb; -fx-border-color: #2962ff; -fx-border-width: 5px;" BorderPane.alignment="CENTER">
          <children>
             <Button id="en" fx:id="encrypt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#encryptBtn" prefHeight="124.0" prefWidth="170.0" text="Encrypt" textAlignment="CENTER" textFill="#3b5bff">
                <VBox.margin>
@@ -101,7 +101,7 @@
                   <URL value="@../../../src/Css/MP.css" />
                </stylesheets>
             </Button>
-            <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#decryptBtn" prefHeight="124.0" prefWidth="170.0" text="Decrypt" textFill="#d93dff">
+            <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#decryptBtn" prefHeight="124.0" prefWidth="170.0" text="Decrypt" textAlignment="CENTER" textFill="#d93dff">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="10.0" />
                </VBox.margin>

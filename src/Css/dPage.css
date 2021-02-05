@@ -2,3 +2,6 @@
 -fx-scale-x:1.2;
 -fx-scale-y:1.2;
 }
+.dec .text{
+-fx-font-size:15;
+}

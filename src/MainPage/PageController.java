@@ -1,10 +1,8 @@
 package MainPage;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -18,12 +16,6 @@ import java.util.ResourceBundle;
 
 public class PageController implements Initializable {
 
-    /**
-     * ------Encrypt and Decrypt buttons' methos-------------
-     */
-    public static AnchorPane mainPane;
-    public static AnchorPane bodyPane;  // parent pain
-    final int epageHeight = 430;
     @FXML
     Label encrypt;
     @FXML
@@ -86,8 +78,6 @@ public class PageController implements Initializable {
         isEncrypt = true;
         isDecrypt = false;
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
-        mainPane = mPane;
-        bodyPane = body;    // parent pain
         body.getChildren().setAll(pane);
         encrypt.setStyle("-fx-background-color: #f4f4f4;");
         decrypt.setStyle("-fx-background-color: #d1d5e6;");
@@ -99,8 +89,6 @@ public class PageController implements Initializable {
         isDecrypt = true;
         isEncrypt = false;
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/decryptPage/dPage.fxml"));
-        mainPane = mPane;
-        bodyPane = body;
         body.getChildren().setAll(pane);
         decrypt.setStyle("-fx-background-color: #f4f4f4;");
         encrypt.setStyle("-fx-background-color: #d1d5e6;");

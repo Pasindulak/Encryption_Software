@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -24,9 +25,9 @@ public class PageController implements Initializable {
     public static AnchorPane bodyPane;  // parent pain
     final int epageHeight = 430;
     @FXML
-    Button encrypt;
+    Label encrypt;
     @FXML
-    Button decrypt;
+    Label decrypt;
     @FXML
     HBox header;
     @FXML
@@ -35,15 +36,22 @@ public class PageController implements Initializable {
     AnchorPane mPane;
     @FXML
     BorderPane bPane;
-    /**
-     * ----method for drag feature to the window------------
-     */
-    double x;
-    double y;
+
+    private boolean isEncrypt;
+    private boolean isDecrypt;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dragOn();
+        encrypt.setOnMouseEntered(e-> encrypt.setStyle("-fx-background-color: #f4f4f4;"));
+        encrypt.setOnMouseExited(e-> {if(!isEncrypt)encrypt.setStyle("-fx-background-color: #d1d5e6;");});
+        decrypt.setOnMouseEntered(e-> decrypt.setStyle("-fx-background-color: #f4f4f4;"));
+        decrypt.setOnMouseExited(e-> {if(!isDecrypt)decrypt.setStyle("-fx-background-color: #d1d5e6;");});
+        try {
+            encryptBtn(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -56,6 +64,11 @@ public class PageController implements Initializable {
         ((Stage) header.getScene().getWindow()).close();
     }
 
+    /**
+     * ----method for drag feature to the window------------
+     */
+    double x;
+    double y;
     private void dragOn() {
         header.setOnMousePressed(event -> {
             x = event.getSceneX();
@@ -69,18 +82,27 @@ public class PageController implements Initializable {
     }
 
     @FXML
-    private void encryptBtn(ActionEvent event) throws IOException {
+    private void encryptBtn(MouseEvent event) throws IOException {
+        isEncrypt = true;
+        isDecrypt = false;
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/encryptPage/ePage.fxml"));
         mainPane = mPane;
         bodyPane = body;    // parent pain
         body.getChildren().setAll(pane);
+        encrypt.setStyle("-fx-background-color: #f4f4f4;");
+        decrypt.setStyle("-fx-background-color: #d1d5e6;");
+
     }
 
     @FXML
-    private void decryptBtn(ActionEvent event) throws IOException {
+    private void decryptBtn(MouseEvent event) throws IOException {
+        isDecrypt = true;
+        isEncrypt = false;
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/decryptPage/dPage.fxml"));
         mainPane = mPane;
         bodyPane = body;
         body.getChildren().setAll(pane);
+        decrypt.setStyle("-fx-background-color: #f4f4f4;");
+        encrypt.setStyle("-fx-background-color: #d1d5e6;");
     }
 }

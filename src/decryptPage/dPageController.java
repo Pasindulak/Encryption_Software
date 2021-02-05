@@ -232,11 +232,11 @@ public class dPageController implements Initializable {
         boolean ret = true;
         if (path.getText().equals("") || path.getText() == null) {
             ret = false;
-            path.setPromptText("Please Select a file or folder to Encrypt");
+            Platform.runLater(()->path.setPromptText("Please Select a file or folder to Encrypt"));
         }
         if (passT.getText().equals("") || passT.getText() == null) {
             ret = false;
-            pWarn.setText("Password Field cannot be\nEmpty!");
+            Platform.runLater(()->pWarn.setText("Password Field cannot be Empty!"));
         }
         return ret;
     }

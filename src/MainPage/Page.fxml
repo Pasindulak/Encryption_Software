@@ -17,12 +17,12 @@
    <top>
       <AnchorPane prefHeight="132.0" prefWidth="600.0" style="-fx-background-color: #2962ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="272.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES ~ Encryption Software" textFill="WHITE">
+            <Label layoutX="242.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES ~ Encryption Software" textFill="WHITE">
                <font>
                   <Font name="Footlight MT Light" size="30.0" />
                </font>
             </Label>
-            <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="226.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="163.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ico/main.png" />
                </image>
@@ -70,7 +70,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <Label layoutX="272.0" layoutY="91.0" prefHeight="17.0" prefWidth="235.0" text="Encrypt and Decrypt Files with AES" textFill="#ffffffd7">
+            <Label layoutX="242.0" layoutY="91.0" prefHeight="17.0" prefWidth="235.0" text="Encrypt and Decrypt Files with AES" textFill="#ffffffd7">
                <font>
                   <Font name="Footlight MT Light" size="15.0" />
                </font>
@@ -81,7 +81,7 @@
    <center>
       <AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="mPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" />
+            <AnchorPane fx:id="mPane" layoutY="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" />
          </children>
       </AnchorPane>
    </center>

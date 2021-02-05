@@ -238,23 +238,27 @@ thread.start();
         boolean ret = true;
         if(path.getText().equals("") || path.getText()==null){
             ret = false;
-            path.setPromptText("Please Select a file or folder to Encrypt");
+            Platform.runLater(()->path.setPromptText("Please Select a file or folder to Encrypt"));
+
         }if(passT.getText().equals("") || passT.getText()==null){
             ret = false;
-            pWarn.setText("Password Field cannot be\nEmpty!");
+           Platform.runLater(()->pWarn.setText("Password Field cannot be\nEmpty!"));
         }if(!passT.getText().equals(cPassT.getText())){
             ret=false;
-            if(SP.isSelected()){
-                passT.clear();
-                cPassT.clear();
+            Platform.runLater(()->{
+                if(SP.isSelected()){
+                    passT.clear();
+                    cPassT.clear();
 
-            }else{
-                passP.clear();
-                cPassP.clear();
-            }
+                }else{
+                    passP.clear();
+                    cPassP.clear();
+                }
 
-            pWarn.setText("Passwords does not match!");
-        }
+                pWarn.setText("Passwords does not match!");
+
+            });
+                    }
         return ret;
     }
 }

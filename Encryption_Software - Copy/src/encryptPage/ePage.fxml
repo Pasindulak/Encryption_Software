@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" stylesheets="@../Css/ePage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryptPage.ePageController">
+   <children>
+      <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" styleClass="img">
+         <image>
+            <Image url="@../ico/back.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="path" layoutX="66.0" layoutY="86.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
+      <Button layoutX="441.0" layoutY="85.0" mnemonicParsing="false" onAction="#browse" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
+      <ToggleButton layoutX="133.0" layoutY="38.0" mnemonicParsing="false" selected="true" stylesheets="@../Css/bootstrap3.css" text="File">
+         <toggleGroup>
+            <ToggleGroup fx:id="option" />
+         </toggleGroup>
+         <styleClass>
+            <String fx:value="first" />
+            <String fx:value="primary" />
+         </styleClass>
+      </ToggleButton>
+      <ToggleButton layoutX="176.0" layoutY="38.0" mnemonicParsing="false" stylesheets="@../Css/bootstrap3.css" text="Folder" toggleGroup="$option">
+         <styleClass>
+            <String fx:value="last" />
+            <String fx:value="primary" />
+         </styleClass>
+      </ToggleButton>
+      <Label layoutX="66.0" layoutY="44.0" text="Encrypt a">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="def" layoutX="207.0" layoutY="202.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="133.0" selected="true" stylesheets="@../Css/bootstrap3.css" text="Default Settings">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <Separator layoutX="58.0" layoutY="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" />
+      <Label layoutX="72.0" layoutY="248.0" text="Key Size: " />
+      <ComboBox fx:id="keyBox" layoutX="132.0" layoutY="244.0" prefHeight="25.0" prefWidth="95.0" />
+      <Label layoutX="254.0" layoutY="248.0" text="Password hashing Algorithm :" />
+      <ComboBox fx:id="hashBox" layoutX="425.0" layoutY="244.0" prefHeight="25.0" prefWidth="123.0" />
+      <Label layoutX="67.0" layoutY="124.0" text="Password :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="155.0" text="Confirm Password :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="passT" layoutX="207.0" layoutY="122.0" prefHeight="25.0" prefWidth="234.0" visible="false" />
+      <TextField fx:id="cPassT" layoutX="207.0" layoutY="154.0" prefHeight="25.0" prefWidth="234.0" visible="false" />
+      <Separator layoutX="58.0" layoutY="284.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" />
+      <Label layoutX="67.0" layoutY="205.0" text="Settings :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="pBar" layoutX="58.0" layoutY="287.0" prefHeight="9.0" prefWidth="500.0" styleClass="primary" stylesheets="@../Css/bootstrap3.css" visible="false" />
+      <Button fx:id="encBTN" layoutX="354.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#encrypt" prefHeight="49.0" prefWidth="95.0" text="Encrypt!" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="310.0">
+         <stylesheets>
+            <URL value="@../Css/bootstrap3.css" />
+            <URL value="@../Css/ePage.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="danger" />
+            <String fx:value="enc" />
+         </styleClass>
+      </Button>
+      <Button fx:id="canBTN" disable="true" layoutX="463.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="49.0" prefWidth="95.0" text="Cancel" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="310.0">
+         <stylesheets>
+            <URL value="@../Css/bootstrap3.css" />
+            <URL value="@../Css/ePage.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="warning" />
+            <String fx:value="enc" />
+         </styleClass>
+      </Button>
+      <CheckBox fx:id="SP" alignment="CENTER_RIGHT" layoutX="552.0" layoutY="157.0" mnemonicParsing="false" prefWidth="13.0" stylesheets="@../Css/bootstrap3.css">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="460.0" layoutY="157.0" text="Show Password?">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <PasswordField fx:id="passP" layoutX="207.0" layoutY="122.0" prefHeight="25.0" prefWidth="234.0" />
+      <PasswordField fx:id="cPassP" layoutX="207.0" layoutY="154.0" prefHeight="25.0" prefWidth="234.0" />
+      <CheckBox fx:id="save" layoutX="364.0" layoutY="202.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="123.0" stylesheets="@../Css/bootstrap3.css" text="Save Settings">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Select to save settings to the file as &#10;meta data. If not selected, you need &#10;to remember settings &#10;when decrypting" />
+         </tooltip>
+      </CheckBox>
+      <Label fx:id="pWarn" alignment="CENTER" layoutX="446.0" layoutY="123.0" prefHeight="32.0" prefWidth="143.0" textAlignment="CENTER" textFill="#bc0000">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="status" layoutX="156.0" layoutY="310.0" prefHeight="40.0" prefWidth="143.0">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

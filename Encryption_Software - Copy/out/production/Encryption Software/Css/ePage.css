@@ -1,0 +1,9 @@
+.img:hover{
+-fx-scale-x:1.2;
+-fx-scale-y:1.2;
+}
+
+.enc .text{
+-fx-font-family:"Segoe Print";
+-fx-font-size:15;
+}

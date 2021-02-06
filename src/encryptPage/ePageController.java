@@ -1,13 +1,11 @@
 package encryptPage;
 
-import MainPage.PageController;
 import aes.AESEngine;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
@@ -66,11 +64,6 @@ public class ePageController implements Initializable {
         defaultListner();
     }
 
-    @FXML
-    private void back(MouseEvent event) {
-
-        PageController.bodyPane.getChildren().setAll(PageController.mainPane);
-    }
 
     @FXML
     private void browse(ActionEvent event) {

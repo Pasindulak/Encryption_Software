@@ -2,32 +2,32 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="bPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage.PageController">
+<BorderPane fx:id="bPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage.PageController">
    <top>
       <AnchorPane prefHeight="132.0" prefWidth="600.0" style="-fx-background-color: #2962ff;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="87.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES ~ Encryption Software" textFill="WHITE">
+            <Label layoutX="242.0" layoutY="38.0" prefHeight="60.0" prefWidth="334.0" text="AES ~ Encryption Software" textFill="WHITE">
                <font>
                   <Font name="Footlight MT Light" size="30.0" />
                </font>
             </Label>
-            <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="41.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="163.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ico/main.png" />
                </image>
             </ImageView>
-            <HBox fx:id="header" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #0039cb;">
+            <HBox fx:id="header" prefHeight="30.0" prefWidth="750.0" style="-fx-background-color: #0039cb;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                         <Insets />
                      </opaqueInsets>
                      <HBox.margin>
-                        <Insets left="219.0" />
+                        <Insets left="380.0" />
                      </HBox.margin>
                   </AnchorPane>
                   <AnchorPane layoutX="521.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#shutdown" prefHeight="28.0" prefWidth="36.0" styleClass="close" stylesheets="@../Css/MP.css">
@@ -70,7 +70,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <Label layoutX="87.0" layoutY="91.0" prefHeight="17.0" prefWidth="235.0" text="Encrypt and Decrypt Files with AES" textFill="#ffffffd7">
+            <Label layoutX="242.0" layoutY="91.0" prefHeight="17.0" prefWidth="235.0" text="Encrypt and Decrypt Files with AES" textFill="#ffffffd7">
                <font>
                   <Font name="Footlight MT Light" size="15.0" />
                </font>
@@ -81,43 +81,38 @@
    <center>
       <AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="mPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0">
-               <children>
-                  <Button id="en" fx:id="encrypt" alignment="CENTER" contentDisplay="TOP" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" onAction="#encryptBtn" prefHeight="184.0" prefWidth="184.0" text="Encrypt" textFill="#3b5bff" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Footlight MT Light" size="32.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ico/encrypt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <stylesheets>
-                        <URL value="@../Css/bootstrap3.css" />
-                        <URL value="@../Css/MP.css" />
-                     </stylesheets>
-                  </Button>
-                  <Button id="de" fx:id="decrypt" alignment="CENTER" contentDisplay="TOP" layoutX="324.0" layoutY="100.0" mnemonicParsing="false" onAction="#decryptBtn" prefHeight="184.0" prefWidth="184.0" text="Decrypt" textFill="#d93dff" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Footlight MT Light" size="32.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ico/decrypt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <stylesheets>
-                        <URL value="@../Css/bootstrap3.css" />
-                        <URL value="@../Css/MP.css" />
-                     </stylesheets>
-                  </Button>
-               </children>
-            </AnchorPane>
+            <AnchorPane fx:id="mPane" layoutY="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" />
          </children>
       </AnchorPane>
    </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="150.0" style="-fx-background-color: #2962ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="encrypt" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#encryptBtn" prefWidth="150.0" styleClass="en" text="Encrypt" textAlignment="CENTER" textFill="#3b5bff">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../Css/bootstrap3.css" />
+                  <URL value="@../Css/MP.css" />
+               </stylesheets>
+            </Label>
+            <Label fx:id="decrypt" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#decryptBtn" prefWidth="150.0" styleClass="de" text="Decrypt" textAlignment="CENTER" textFill="#3b5bff">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../Css/bootstrap3.css" />
+                  <URL value="@../Css/MP.css" />
+               </stylesheets>
+            </Label>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>

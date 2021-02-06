@@ -242,9 +242,4 @@ public class dPageController implements Initializable {
     }
 
 
-    @FXML
-    private void back(MouseEvent event) {
-
-        PageController.bodyPane.getChildren().setAll(PageController.mainPane);
-    }
 }

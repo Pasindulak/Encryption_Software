@@ -10,18 +10,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" stylesheets="@../Css/dPage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="decryptPage.dPageController">
    <children>
-      <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" styleClass="img">
-         <image>
-            <Image url="@../ico/back.png" />
-         </image>
-      </ImageView>
       <TextField fx:id="path" layoutX="76.0" layoutY="122.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
       <Button layoutX="451.0" layoutY="121.0" mnemonicParsing="false" onAction="#browse" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
       <ToggleButton layoutX="143.0" layoutY="48.0" mnemonicParsing="false" selected="true" stylesheets="@../Css/bootstrap3.css" text="File">
@@ -39,7 +32,7 @@
             <String fx:value="primary" />
          </styleClass>
       </ToggleButton>
-      <Label layoutX="76.0" layoutY="54.0" text="Encrypt a">
+      <Label layoutX="76.0" layoutY="54.0" text="Decrypt a">
          <font>
             <Font size="15.0" />
          </font>

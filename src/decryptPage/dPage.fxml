@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" stylesheets="@../Css/dPage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="decryptPage.dPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" stylesheets="@../Css/dPage.css" xmlns="http://javafx.com/javafx/14.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="decryptPage.dPageController">
    <children>
-      <TextField fx:id="path" layoutX="76.0" layoutY="122.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
-      <Button layoutX="451.0" layoutY="121.0" mnemonicParsing="false" onAction="#browse" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
-      <ToggleButton layoutX="143.0" layoutY="48.0" mnemonicParsing="false" selected="true" stylesheets="@../Css/bootstrap3.css" text="File">
+      <TextField fx:id="path" layoutX="66.0" layoutY="86.0" prefHeight="25.0" prefWidth="375.0" styleClass="first" stylesheets="@../Css/bootstrap3.css" />
+      <Button layoutX="441.0" layoutY="85.0" mnemonicParsing="false" onAction="#browse" prefHeight="25.0" prefWidth="83.0" styleClass="last" stylesheets="@../Css/bootstrap3.css" text="Browse" />
+      <ToggleButton layoutX="133.0" layoutY="38.0" mnemonicParsing="false" selected="true" stylesheets="@../Css/bootstrap3.css" text="File">
          <styleClass>
             <String fx:value="first" />
             <String fx:value="primary" />
@@ -26,13 +26,13 @@
             <ToggleGroup fx:id="option" />
          </toggleGroup>
       </ToggleButton>
-      <ToggleButton layoutX="186.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../Css/bootstrap3.css" text="Folder" toggleGroup="$option">
+      <ToggleButton layoutX="176.0" layoutY="38.0" mnemonicParsing="false" stylesheets="@../Css/bootstrap3.css" text="Folder" toggleGroup="$option">
          <styleClass>
             <String fx:value="last" />
             <String fx:value="primary" />
          </styleClass>
       </ToggleButton>
-      <Label layoutX="76.0" layoutY="54.0" text="Decrypt a">
+      <Label layoutX="66.0" layoutY="44.0" text="Decrypt a">
          <font>
             <Font size="15.0" />
          </font>

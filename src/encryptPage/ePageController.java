@@ -233,7 +233,14 @@ thread.start();
             ret = false;
             Platform.runLater(()->path.setPromptText("Please Select a file or folder to Encrypt"));
 
-        }if(passT.getText().equals("") || passT.getText()==null){
+        }else if(!new File(path.getText()).exists()){
+            ret = false;
+            Platform.runLater(()->{
+                    path.setText("");
+                    path.setPromptText("Selected file or folder doesn't exist!");});
+
+        }
+        if(passT.getText().equals("") || passT.getText()==null){
             ret = false;
            Platform.runLater(()->pWarn.setText("Password Field cannot be\nEmpty!"));
         }if(!passT.getText().equals(cPassT.getText())){

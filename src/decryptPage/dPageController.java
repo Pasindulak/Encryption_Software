@@ -233,6 +233,12 @@ public class dPageController implements Initializable {
         if (path.getText().equals("") || path.getText() == null) {
             ret = false;
             Platform.runLater(()->path.setPromptText("Please Select a file or folder to Encrypt"));
+        }else if(!new File(path.getText()).exists()){
+            ret = false;
+            Platform.runLater(()->{
+                path.setText("");
+                path.setPromptText("Selected file or folder doesn't exist!");});
+
         }
         if (passT.getText().equals("") || passT.getText() == null) {
             ret = false;
